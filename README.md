@@ -2,5 +2,9 @@
 
 ```sh
 pip install pytest
-## or pip3
 ```
+
+
+#### Graph
+- [Manim](https://docs.manim.community/en/stable/installation.html)
+- [NetworkX](https://networkx.org/documentation/stable/install.html)
