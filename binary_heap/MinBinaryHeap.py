@@ -50,6 +50,8 @@ class MinBinaryHeap:
         self.heap[a], self.heap[b] = self.heap[b], self.heap[a]
 
     def pop(self):
+        if (self.is_empty()):
+            raise Exception("empty heap")
         self._swap(0, len(self.heap) - 1)
         node = self.heap.pop()
         self.map.pop(node.id)
@@ -75,3 +77,9 @@ class MinBinaryHeap:
         index = self.map[id]
         self.heap[index].key = key
         self._swim(index)
+
+    def exist(self, id):
+        return id in self.map
+
+    def is_empty(self):
+        return len(self.heap) == 0

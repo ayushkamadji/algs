@@ -54,6 +54,15 @@ def test_pop():
     assert heap.map == {}
 
 
+def test_pop_2():
+    heap = MinBinaryHeap()
+    heap.insert(0, "A", "value")
+    result = heap.pop()
+    assert heap.is_empty()
+    assert result.__dict__ == {
+        "key": 0, "id": "A", "value": "value", "order": 0}
+
+
 def test_decrease_key():
     heap = MinBinaryHeap()
     heap.insert(2, "A", "value")
@@ -65,3 +74,17 @@ def test_decrease_key():
 
     heap.decrease_key("D", 0)
     assert heap.map == {"C": 1, "A": 2, "B": 3, "D": 0}
+
+
+def test_exist():
+    heap = MinBinaryHeap()
+    heap.insert(2, "A", "value")
+    heap.insert(5, "B", "value")
+    heap.insert(1, "C", "value")
+    heap.insert(17, "D", "value")
+
+    assert heap.exist("A") == True
+    assert heap.exist("B") == True
+    assert heap.exist("C") == True
+    assert heap.exist("D") == True
+    assert heap.exist("E") == False
